@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 0a5c2fc4ae5a247a0a1ac43f057f4f1f
+guid: 5a6c9d8d7006343859a27e15de048597
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6501200375350493247
-    second: GreenGround_0
+      213: -372235530113671282
+    second: GrayCat_Running-Sheet_0
+  - first:
+      213: -8338111924909573282
+    second: GrayCat_Running-Sheet_1
+  - first:
+      213: 6523509272349959752
+    second: GrayCat_Running-Sheet_2
+  - first:
+      213: -8512319339488676044
+    second: GrayCat_Running-Sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +55,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -113,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GreenGround_0
+      name: GrayCat_Running-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,15 +130,81 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f30076aeb47e83a50800000000000000
-      internalID: 6501200375350493247
+      spriteID: e8f9bcee1cd85daf0800000000000000
+      internalID: -372235530113671282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrayCat_Running-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bf05aa163194c80800000000000000
+      internalID: -8338111924909573282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrayCat_Running-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 846e263ce19288a50800000000000000
+      internalID: 6523509272349959752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrayCat_Running-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 437f61339aa2ed980800000000000000
+      internalID: -8512319339488676044
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 7bfe1b7c021e84c4c82f4186ca6ad330
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      GreenGround_0: 6501200375350493247
+      GrayCat_Running-Sheet_0: -372235530113671282
+      GrayCat_Running-Sheet_1: -8338111924909573282
+      GrayCat_Running-Sheet_2: 6523509272349959752
+      GrayCat_Running-Sheet_3: -8512319339488676044
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
