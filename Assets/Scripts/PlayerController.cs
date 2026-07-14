@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;   // CM3 namespace
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator animator;
 
+    CinemachineImpulseSource impulseSource;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +45,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();        //assigns rigidbody component to variable
         spriteRenderer = visual.GetComponent<SpriteRenderer>();  //assigns spriterenderer component to variable
         animator = visual.GetComponent<Animator>();              // assigns animator component to variable
+        impulseSource = GetComponent<CinemachineImpulseSource>();
 
     }
 
@@ -124,6 +129,11 @@ public class PlayerController : MonoBehaviour
         if (groundCheck == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+
+    void Shake(float force = 1f)
+    {
+        impulseSource.GenerateImpulse(force);
     }
 
 }
