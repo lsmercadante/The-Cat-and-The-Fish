@@ -12,9 +12,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - Decorations
+  - Fence
+  - Clouds
   - 
   - 
   - 
@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Clouds
+    uniqueID: 1776425397
+    locked: 0
+  - name: Fence
+    uniqueID: 2460092829
+    locked: 0
+  - name: Decorations
+    uniqueID: 236697529
+    locked: 0
+  - name: Ground
+    uniqueID: 1244427125
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

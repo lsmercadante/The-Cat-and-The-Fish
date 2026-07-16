@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
 
         // ease back to normal and apply to the visual only
         squashScale = Vector3.Lerp(squashScale, Vector3.one, Time.deltaTime * squashSpeed);
-        visual.localScale = squashScale;
+        //visual.localScale = squashScale;
 
         //Animating the movement
         animator.SetBool("isRunning", Mathf.Abs(move.x) > 0.1f);
