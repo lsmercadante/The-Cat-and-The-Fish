@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Reflection;
 
 public class DogController : MonoBehaviour
 {
@@ -16,27 +18,43 @@ public class DogController : MonoBehaviour
     public float wallCheckDistance = 0.3f;
     public LayerMask groundLayer;
     float flipTimer;
+
+    public bool isKnockedOut;
+    public float knockoutTime = 3f;
+    public float idleTime = 0.4f;
+
+    Animator animator;
+
+    [SerializeField] ParticleSystem stompParticles; 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();        //assigns rigidbody component to variable
         spriteRenderer = visual.GetComponent<SpriteRenderer>();  //assigns spriterenderer component to variable
+        animator = visual.GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
-        flipTimer += Time.fixedDeltaTime;
-        if (flipTimer >= flipInterval)
+        if (isKnockedOut)
+        {
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // hold still, keep gravity
+            return;                                                    // skip patrol + checks
+        }
+        rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);    // sets the dogs velocity to the speed
+        flipTimer += Time.fixedDeltaTime;       // timer counting up to flip time
+        if (flipTimer >= flipInterval)          // when flip time is reached, flip occurs
             Flip();
 
-        CheckSurroundings();
+        CheckSurroundings();        // checks for ledges and walls
     }
     void Flip()
     {
-        direction *= -1;
+        direction *= -1;                    // changes direction
         flipTimer = 0f;                      // restart the timed patrol
-        spriteRenderer.flipX = direction > 0;
+        spriteRenderer.flipX = direction > 0;   // flips sprite direction
     }
     void CheckSurroundings()
     {
@@ -49,7 +67,7 @@ public class DogController : MonoBehaviour
         // wall check: ray forward from the dog
         RaycastHit2D wall = Physics2D.Raycast(transform.position, Vector2.right * direction, wallCheckDistance, groundLayer);
 
-        if (ground.collider == null || wall.collider != null)
+        if (ground.collider == null || wall.collider != null) // flips if wall is there or ground is not there
             Flip();
     }
     void OnDrawGizmos()
@@ -58,5 +76,28 @@ public class DogController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(front, front + Vector2.down * edgeCheckDistance);           // ledge ray
         Gizmos.DrawLine(transform.position, transform.position + Vector3.right * direction * wallCheckDistance); // wall ray
+    }
+
+    public void Defeat()
+    {
+        if (isKnockedOut) return;        // already down, ignore repeat hits
+        stompParticles.Play();
+        StartCoroutine(KnockoutRoutine());
+    }
+
+    IEnumerator KnockoutRoutine()
+    {
+        isKnockedOut = true;
+        rb.linearVelocity = Vector2.zero;                  // stop moving
+        animator.SetTrigger("Dazed");        // Walk -> Dazed
+
+        yield return new WaitForSeconds(knockoutTime);     // stay down
+
+        
+        animator.SetTrigger("Recover");      // Dazed -> Idle
+        yield return new WaitForSeconds(idleTime);
+                                    
+        animator.SetTrigger("Walk"); 
+        isKnockedOut = false;  // resume patrol
     }
 }

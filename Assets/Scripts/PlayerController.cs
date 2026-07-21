@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Cinemachine;   // CM3 namespace
+using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Reflection;
+using Microsoft.VisualBasic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,11 +34,21 @@ public class PlayerController : MonoBehaviour
     public float squashSpeed = 12f;
     bool wasGrounded;
 
+    public float bounceForce = 6f;
+
+    public float deathSequenceTime = 0.5f;   // how long the sink shows before reload
+    bool isDead = false;
+    Vector2 respawnPoint;
+    float originalGravity;
+
+
     //Variables for sprite rendering/animations
     SpriteRenderer spriteRenderer;
     Animator animator;
 
     CinemachineImpulseSource impulseSource;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -47,6 +61,8 @@ public class PlayerController : MonoBehaviour
         animator = visual.GetComponent<Animator>();              // assigns animator component to variable
         impulseSource = GetComponent<CinemachineImpulseSource>();
 
+        respawnPoint = transform.position;   // default = level start
+        originalGravity = rigidbody2d.gravityScale;
     }
 
     // Update is called once per frame
@@ -101,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
         // ease back to normal and apply to the visual only
         squashScale = Vector3.Lerp(squashScale, Vector3.one, Time.deltaTime * squashSpeed);
-        //visual.localScale = squashScale;
+        visual.localScale = squashScale;
 
         //Animating the movement
         animator.SetBool("isRunning", Mathf.Abs(move.x) > 0.1f);
@@ -122,6 +138,33 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            DogController dog = collision.gameObject.GetComponent<DogController>();
+            BlueJayController bird = collision.gameObject.GetComponent<BlueJayController>();
+            if (dog != null && dog.isKnockedOut) return;   // downed dog = safe to touch
+
+            if (bird != null)          // bird can't be stomped — any contact is fatal
+            {
+                Die();
+                return;
+            }
+
+            bool falling = rigidbody2d.linearVelocity.y < -0.01f;                       // coming down
+            bool above = transform.position.y > collision.transform.position.y;  // cat higher than dog
+            if (falling && above)
+            { Stomp(collision.gameObject); }
+            else
+            { Die(); }
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Hazard"))
+            Die();
+    }
 
     void OnDrawGizmos()
     // for visualization of the ground overlap circle
@@ -135,5 +178,58 @@ public class PlayerController : MonoBehaviour
     {
         impulseSource.GenerateImpulse(force);
     }
+
+    void ReloadScene()
+    {
+        Scene current = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(current.buildIndex);
+    }
+
+    void Die()
+    {
+        if (isDead) return;      // already dying, ignore
+        isDead = true;
+        StartCoroutine(DeathSequence());
+    }
+    IEnumerator DeathSequence()
+    {
+        MoveAction.Disable();               // cut input so the cat can't steer mid-death
+        JumpAction.Disable();
+        rigidbody2d.gravityScale = 0.1f;
+        rigidbody2d.linearVelocity = new Vector2(0f, rigidbody2d.linearVelocity.y * 0.1f);
+
+        // (later: play a splash particle / startled sprite / fade here)
+
+        yield return new WaitForSeconds(deathSequenceTime);
+        Respawn();
+    }
+
+    void Respawn()
+    {
+        transform.position = respawnPoint;
+        rigidbody2d.linearVelocity = Vector2.zero;
+        rigidbody2d.gravityScale = originalGravity;   // undo the death float
+        MoveAction.Enable();                           // give control back
+        JumpAction.Enable();
+        isDead = false;                                // ready to die again
+    }
+    public void SetRespawn(Vector2 point)
+    {
+        respawnPoint = point;
+    }
+    // in PlayerController
+    void Stomp(GameObject dog)
+    {
+        dog.GetComponent<DogController>().Defeat();
+        Bounce();
+    }
+    void Bounce()
+    {
+        rigidbody2d.linearVelocity = new Vector2(rigidbody2d.linearVelocity.x, bounceForce);
+    }
+
+
+
+
 
 }
