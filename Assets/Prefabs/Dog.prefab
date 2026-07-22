@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa403f8afee34036b163a7c3dc371e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DogController
-  speed: 2
+  speed: 1.5
   visual: {fileID: 4735229842518400678}
   flipInterval: 3
   frontOffset: 0.4

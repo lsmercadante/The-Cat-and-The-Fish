@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene(current.buildIndex);
     }
 
-    void Die()
+    public void Die()
     {
         if (isDead) return;      // already dying, ignore
         isDead = true;
