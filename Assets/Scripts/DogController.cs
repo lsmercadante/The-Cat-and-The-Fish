@@ -89,11 +89,12 @@ public class DogController : MonoBehaviour
     {
         isKnockedOut = true;
         rb.linearVelocity = Vector2.zero;                  // stop moving
+        rb.bodyType = RigidbodyType2D.Kinematic;   // can't be shoved while dazed
         animator.SetTrigger("Dazed");        // Walk -> Dazed
 
         yield return new WaitForSeconds(knockoutTime);     // stay down
 
-        
+        rb.bodyType = RigidbodyType2D.Dynamic;     // back to normal patrol physics
         animator.SetTrigger("Recover");      // Dazed -> Idle
         yield return new WaitForSeconds(idleTime);
                                     

@@ -152,12 +152,13 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            bool falling = rigidbody2d.linearVelocity.y < -0.01f;                       // coming down
-            bool above = transform.position.y > collision.transform.position.y;  // cat higher than dog
-            if (falling && above)
-            { Stomp(collision.gameObject); }
+            // cat's feet above the dog's vertical center = landed on top
+            bool above = collision.otherCollider.bounds.min.y > collision.collider.bounds.center.y;
+
+            if (above)
+                Stomp(collision.gameObject);
             else
-            { Die(); }
+                Die();
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -189,6 +190,10 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead) return;      // already dying, ignore
         isDead = true;
+        if (GameManager.Instance != null)
+            GameManager.Instance.RegisterDeath();
+        else 
+            Debug.LogError("GameManager.Instance is NULL at death");
         StartCoroutine(DeathSequence());
     }
     IEnumerator DeathSequence()
@@ -201,6 +206,7 @@ public class PlayerController : MonoBehaviour
         // (later: play a splash particle / startled sprite / fade here)
 
         yield return new WaitForSeconds(deathSequenceTime);
+
         Respawn();
     }
 

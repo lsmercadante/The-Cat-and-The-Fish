@@ -1,0 +1,49 @@
+:root {
+}
+
+VisualElement > #MessageText {
+    -unity-font-definition: url("project://database/Assets/UI/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=52790b317917c4165b1f7a59d9fa0445&type=3#PixelifySans-VariableFont_wght");
+    font-size: 16px;
+    color: rgb(0, 100, 0);
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgb(127, 127, 127);
+    text-shadow: 2px 2px 0 rgb(243, 205, 13);
+}
+
+VisualElement > #DeathCountText {
+    -unity-font-definition: url("project://database/Assets/UI/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=52790b317917c4165b1f7a59d9fa0445&type=3#PixelifySans-VariableFont_wght");
+    color: rgb(50, 111, 50);
+    -unity-font-style: normal;
+    text-shadow: 2px 2px 0 rgb(234, 200, 13);
+    bottom: 10%;
+}
+
+VisualElement > #RestartButton {
+    bottom: 10%;
+    -unity-font-definition: url("project://database/Assets/UI/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=52790b317917c4165b1f7a59d9fa0445&type=3#PixelifySans-VariableFont_wght");
+    -unity-font-style: bold;
+    color: rgb(234, 200, 13);
+    background-color: rgb(68, 118, 66);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-left-color: rgb(55, 96, 53);
+    border-right-color: rgb(55, 96, 53);
+    border-top-color: rgb(55, 96, 53);
+    border-bottom-color: rgb(55, 96, 53);
+}
+
+VisualElement > #RestartButton:hover {
+    scale: 1.05 1.05;
+    background-color: rgb(88, 159, 89);
+}
+
+VisualElement > #RestartButton:active {
+    background-color: rgb(46, 94, 44);
+    scale: 0.95 0.95;
+}

@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/WinScreen.uss?fileID=7433441132597879392&amp;guid=b3b7d7361f08742b390b4a641b4beb29&amp;type=3#WinScreen"/>
+    <ui:VisualElement style="flex-grow: 1; width: 100%; height: 100%; justify-content: space-around; align-items: center;">
+        <ui:Label text="Label" name="MessageText"/>
+        <ui:Label text="Label" name="DeathCountText"/>
+        <ui:Button text="RESTART" name="RestartButton"/>
+    </ui:VisualElement>
+</ui:UXML>

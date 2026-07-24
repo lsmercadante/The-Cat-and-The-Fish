@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=00e0ec6a3831e4bddabd3ba7adbb2a08&amp;type=3#MainMenu"/>
+    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: space-evenly; align-content: flex-start; width: 100%; height: 100%;">
+        <ui:Label text="The Quest for the Golden Fish" name="Title" style="left: auto; font-size: 28px; text-shadow: 2px 2px 0 rgb(243, 205, 10); -unity-font-definition: url(&quot;project://database/Assets/UI/PixelifySans-VariableFont_wght.ttf?fileID=12800000&amp;guid=52790b317917c4165b1f7a59d9fa0445&amp;type=3#PixelifySans-VariableFont_wght&quot;); word-spacing: 2px; color: rgb(0, 100, 0); -unity-font-style: normal; -unity-text-align: middle-center;"/>
+        <ui:Button text="PLAY" name="PlayButton"/>
+    </ui:VisualElement>
+</ui:UXML>

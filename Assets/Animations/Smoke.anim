@@ -23,7 +23,7 @@ AnimationClip:
     - time: 0
       value: {fileID: -2543161278166403486, guid: b84e2e30115d54efd91aa43d71eeaba6, type: 3}
     - time: 0.5
-      value: {fileID: -2543161278166403486, guid: b84e2e30115d54efd91aa43d71eeaba6, type: 3}
+      value: {fileID: 1766479549413275427, guid: b84e2e30115d54efd91aa43d71eeaba6, type: 3}
     - time: 1
       value: {fileID: 4336332254551780690, guid: b84e2e30115d54efd91aa43d71eeaba6, type: 3}
     - time: 1.5
@@ -51,7 +51,7 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: -2543161278166403486, guid: b84e2e30115d54efd91aa43d71eeaba6, type: 3}
-    - {fileID: -2543161278166403486, guid: b84e2e30115d54efd91aa43d71eeaba6, type: 3}
+    - {fileID: 1766479549413275427, guid: b84e2e30115d54efd91aa43d71eeaba6, type: 3}
     - {fileID: 4336332254551780690, guid: b84e2e30115d54efd91aa43d71eeaba6, type: 3}
     - {fileID: 6432433507561761962, guid: b84e2e30115d54efd91aa43d71eeaba6, type: 3}
   m_AnimationClipSettings:
@@ -79,6 +79,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: SetSafe
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5
     functionName: SetDeadly
     data: 
