@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class SardineCollectable : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.CompareTag("Player"))
+        {
+            GameManager.Instance.CollectSardine();
+            // audioSource.PlayOneShot(collectClip); // Week 4
+            Destroy(gameObject);
+        }
     }
 }

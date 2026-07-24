@@ -3,6 +3,8 @@
     <ui:VisualElement style="flex-grow: 1; width: 100%; height: 100%; justify-content: space-around; align-items: center;">
         <ui:Label text="Label" name="MessageText"/>
         <ui:Label text="Label" name="DeathCountText"/>
+        <ui:Label text="Label" name="SardineCountText"/>
+        <ui:Label text="Label" name="TimeText"/>
         <ui:Button text="RESTART" name="RestartButton"/>
     </ui:VisualElement>
 </ui:UXML>

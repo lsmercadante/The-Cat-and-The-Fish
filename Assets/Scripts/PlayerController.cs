@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         impulseSource = GetComponent<CinemachineImpulseSource>();
 
         respawnPoint = transform.position;   // default = level start
+        GameManager.Instance.StartLevelTimer();
         originalGravity = rigidbody2d.gravityScale;
     }
 

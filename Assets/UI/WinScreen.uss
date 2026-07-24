@@ -47,3 +47,19 @@ VisualElement > #RestartButton:active {
     background-color: rgb(46, 94, 44);
     scale: 0.95 0.95;
 }
+
+VisualElement > #SardineCountText {
+    -unity-font-definition: url("project://database/Assets/UI/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=52790b317917c4165b1f7a59d9fa0445&type=3#PixelifySans-VariableFont_wght");
+    color: rgb(50, 111, 50);
+    -unity-font-style: normal;
+    text-shadow: 2px 2px 0 rgb(234, 200, 13);
+    bottom: 10%;
+}
+
+VisualElement > #TimeText {
+    -unity-font-definition: url("project://database/Assets/UI/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=52790b317917c4165b1f7a59d9fa0445&type=3#PixelifySans-VariableFont_wght");
+    color: rgb(50, 111, 50);
+    -unity-font-style: normal;
+    text-shadow: 2px 2px 0 rgb(234, 200, 13);
+    bottom: 10%;
+}

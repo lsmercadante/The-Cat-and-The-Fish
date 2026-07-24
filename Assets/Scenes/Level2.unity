@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb18d33ca8b504cbd8361479074cc7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HUDController
+  sardinesPerLevel: 5
 --- !u!114 &63144480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9122,7 +9123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &770543931
 Transform:
   m_ObjectHideFlags: 0
@@ -17088,6 +17089,10 @@ PrefabInstance:
       propertyPath: winPanel
       value: 
       objectReference: {fileID: 99670526}
+    - target: {fileID: 5953878579415540830, guid: 0d50c776676234bd19c8d7581c9b617a, type: 3}
+      propertyPath: levelIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5953878579415540830, guid: 0d50c776676234bd19c8d7581c9b617a, type: 3}
       propertyPath: nextSceneName
       value: WinScene

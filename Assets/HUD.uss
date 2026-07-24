@@ -36,3 +36,17 @@
     padding-bottom: 0;
     padding-left: 0;
 }
+
+#SardineCounter {
+    position: absolute;
+}
+
+#SardineCounter > #SardineIcon {
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    background-image: url("project://database/Assets/Sprites/Collectables/Sardine.png?fileID=2800000&guid=267f9f9d333a34ecb8c17bdbadddafbe&type=3#Sardine");
+}
+
+#SardineCounter > #SardineCountLabel {
+}

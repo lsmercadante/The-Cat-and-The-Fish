@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2901483316576725106}
   - component: {fileID: 3033575294885011715}
   - component: {fileID: 8238618999304144596}
+  - component: {fileID: 6006106408503163392}
   m_Layer: 0
   m_Name: Sardine
   m_TagString: Untagged
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 236697529
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 267f9f9d333a34ecb8c17bdbadddafbe, type: 3}
@@ -138,3 +139,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.915102, y: 0.65964675}
   m_EdgeRadius: 0
+--- !u!114 &6006106408503163392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055089596271361533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed666c31c68ea43199efa49cb61f7b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SardineCollectable
